@@ -9,6 +9,7 @@ export default async function getCoworkingspaces() {
         // {next: {tags:['hospitals']}}
     )
     if(!response.ok){
+        console.log(response.status)
         throw new Error("Failed to fetch coworkingspaces")
     } 
     return await response.json()

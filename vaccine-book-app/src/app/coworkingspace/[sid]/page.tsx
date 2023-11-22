@@ -26,22 +26,23 @@ export default async function DetailPage({params}:{params:{sid:string}}) {
     addReservation(token, params.sid, new Date(bookingDate) , numOfRooms)
   }
   
-  const edit = async (editForm:FormData) => {
-      "use server"
-      const Name = String(editForm.get("date")) 
-      const Address = Number(editForm.get("room")) 
-      // console.log(profile,params.sid,bookingDate,numOfRooms)
-      updateCoworkingspace(
-        token,
-        params.sid,
-        Name,
-        Address,
-        OperatingHours,
-        Province,
-        Postalcode,
-        Tel,
-        Picture)
-    }
+  // const edit = async (editForm:FormData) => {
+  //     "use server"
+  //     const Name = String(editForm.get("date")) 
+  //     const Address = String(editForm.get("room"))
+  //     const Address = String(editForm.get("room"))
+  //     // console.log(profile,params.sid,bookingDate,numOfRooms)
+  //     updateCoworkingspace(
+  //       token,
+  //       params.sid,
+  //       Name,
+  //       Address,
+  //       OperatingHours,
+  //       Province,
+  //       Postalcode,
+  //       Tel,
+  //       Picture)
+  //   }
   return (
     <div>
         <div className='text-md mx-5 text-left m-5'>{spaceDetail.data.name}
@@ -72,9 +73,9 @@ export default async function DetailPage({params}:{params:{sid:string}}) {
         text-gray-700 focus:outline-none focus:border-blue-400"/>
     </div>
     <button type="submit" className = "bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">
-        Add New Reservationl</button>
+        Add New Reservation</button>
     </form>
-    <form action={edit} className='p-5 bg-slate-300 w-1/2 m-10'>
+    {/* <form action={edit} className='p-5 bg-slate-300 w-1/2 m-10'>
           <div className = "text-xl text-blue-700">Edit Space</div>
             <div className = "flex items-center w-full my-2">
           <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
@@ -93,8 +94,8 @@ export default async function DetailPage({params}:{params:{sid:string}}) {
         text-gray-700 focus:outline-none focus:border-blue-400"/>
     </div>
     <button type="submit" className = "bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">
-        Add New Reservationl</button>
-    </form>
+        Add New Reservation</button>
+    </form> */}
   </div>
 
   )

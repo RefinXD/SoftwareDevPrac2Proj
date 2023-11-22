@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 export default function Banner (){
     const router = useRouter()
-    const covers = ['/img/background.jpeg','/img/background2.jpeg','/img/background3.jpeg','/img/background4.jpeg']
+    const covers = ['/img/bg1.jpg','/img/bg2.jpg','/img/bg3.jpg','/img/bg4.jpg']
     const [index, setIndex] = useState(0);
     const { data:session } = useSession()
     console.log(session?.user.token)
@@ -18,8 +18,12 @@ export default function Banner (){
                fill={true} 
                objectFit='cover'/>
                 <div className={styles.bannerText}>
-                    <h1 className='text-4xl font-medium'>Welcome To VacQ</h1>
-                    <h3 className='text-2xl font-serif'>Stay safe from viruses with us</h3>
+                    
+                <div className="bg-slate-400 h-15 w-[100%] bg-opacity-50 flex flex-col items-center space-y-4 p-10 ">
+                    <h1 className='text-4xl font-medium'>Welcome To CoWorkers</h1>
+
+                    <h3 className='text-2xl font-serif'>Find your perfect coworking spaces here</h3>
+                    </div>
                 </div>
                 {
                     session? <div className='z-30 absolute top-5 right-10 font-bold text-white

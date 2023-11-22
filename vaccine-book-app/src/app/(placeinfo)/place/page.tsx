@@ -18,7 +18,7 @@ export default async function Home() {
   <Banner/>
   <Suspense fallback ={<p>Loading...<LinearProgress/></p>}>
     
-    <PlaceCatalog PlaceJson = {place}/>
+    <PlaceCatalog placeJson = {place}/>
     </Suspense>
     </main>
     )
@@ -32,7 +32,7 @@ export default async function Home() {
         <Banner/>
         <Suspense fallback ={<p>Loading...<LinearProgress/></p>}>
           
-          <PlaceCatalog PlaceJson = {place}/>
+          <PlaceCatalog placeJson = {place}/>
           {
                     (profile.data.role =="admin")?
                     <AddPlaceForm></AddPlaceForm>
