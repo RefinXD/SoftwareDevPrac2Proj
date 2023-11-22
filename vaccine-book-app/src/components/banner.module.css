@@ -1,0 +1,14 @@
+.banner {
+    display: block;
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 40vh;
+    position:relative;
+}
+.bannerText{
+    position: relative;
+    top: 100px;
+    z-index: 20;
+    text-align: center;
+}
