@@ -2,6 +2,7 @@ import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import addReservation from '@/libs/addReservation'
 import getCoworkingspace from '@/libs/getCoworkingspace'
 import getUserProfile from '@/libs/getUserProfile'
+import updateCoworkingspace from '@/libs/updateCoworkingspace'
 import { getServerSession } from 'next-auth'
 import Image from 'next/image'
 import React from 'react'
@@ -49,7 +50,7 @@ export default async function DetailPage({params}:{params:{sid:string}}) {
               <div>Province: {spaceDetail.data.province}</div>
               <div>Postal Code: {spaceDetail.data.postalcode}</div>
               <div>Telephone: {spaceDetail.data.tel}</div>
-              <Image src={spaceDetail.data.picture} alt="Hospital"
+              <Image src={spaceDetail.data.picture} alt="Place"
           width={0} height={0} sizes='100vw' className='round-lg w-[30%] bg-black'/>
             </div>
         <form action={reserve} className='p-5 bg-slate-300 w-1/2 m-10'>

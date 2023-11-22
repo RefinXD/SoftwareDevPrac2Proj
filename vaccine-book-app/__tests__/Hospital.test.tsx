@@ -1,7 +1,7 @@
 import Banner from "@/components/Banner"
 import ProductCard from "@/components/ProductCard"
 import TopMenuItem from "@/components/TopMenuItem"
-import HospitalCatalog from "@/components/hospitalCatalog"
+import HospitalCatalog from "@/components/PlaceCatalog"
 import { render, screen, waitFor } from "@testing-library/react"
 
 const mockResult = {

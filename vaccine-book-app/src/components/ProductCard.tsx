@@ -5,9 +5,9 @@ import InteractiveCard from './InteractiveCard'
 import { Rating } from '@mui/material'
 import React from 'react';
 
-export default function ProductCard ({hospitalName,imgSrc,rating,onChange}:{hospitalName:string,imgSrc:string,rating?:any,onChange?:Function}){
+export default function ProductCard ({placeName,imgSrc,rating,onChange}:{placeName:string,imgSrc:string,rating?:any,onChange?:Function}){
     return(
-        <InteractiveCard contentName={hospitalName}>
+        <InteractiveCard contentName={placeName}>
             <div className ="w-full h-[70%] relative rounded-t-lg">
                 <Image src={imgSrc}
                     alt='Product Picture'
@@ -15,14 +15,14 @@ export default function ProductCard ({hospitalName,imgSrc,rating,onChange}:{hosp
                     className='object-cover rounded-t-lg'/>            
             </div>
             <div className="w-full h-[30%] p-[10px]">
-                {hospitalName}
+                {placeName}
                 <div>
                     { onChange? <Rating
                         name="simple-controlled"
                         value={rating}
                         onChange ={(event, newValue) => {
                             event.stopPropagation();
-                            onChange(hospitalName,newValue)
+                            onChange(placeName,newValue)
                         }
                         }
                         onClick={(e)=>e.stopPropagation()}

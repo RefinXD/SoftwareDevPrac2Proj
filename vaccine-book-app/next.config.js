@@ -4,7 +4,8 @@ const nextConfig = {
         domains: ['drive.google.com']
     },
     experimental: {
-        serverActions: true
+        serverActions: true,
+        appDir:true,
     }
 }
 

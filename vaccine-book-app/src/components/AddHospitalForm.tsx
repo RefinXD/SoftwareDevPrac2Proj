@@ -1,24 +1,24 @@
 import { dbConnect } from "@/db/dbConnect"
-import Hospital from "@/db/models/Hospital"
+import Place from "@/db/models/Place"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 
-export default function AddHospitalForm()
+export default function AddPlaceForm()
 {
 
-    const addHospital = async (addHospitalForm:FormData) => {
+    const addPlace = async (addPlaceForm:FormData) => {
         "use server"
         
-        const name = addHospitalForm.get("name")
-        const address = addHospitalForm.get("address")
-        const district = addHospitalForm.get("district")
-        const province = addHospitalForm.get("province")
-        const postalcode = addHospitalForm.get("postalcode")
-        const tel = addHospitalForm.get("tel")
-        const image = addHospitalForm.get("image")
+        const name = addPlaceForm.get("name")
+        const address = addPlaceForm.get("address")
+        const district = addPlaceForm.get("district")
+        const province = addPlaceForm.get("province")
+        const postalcode = addPlaceForm.get("postalcode")
+        const tel = addPlaceForm.get("tel")
+        const image = addPlaceForm.get("image")
         try{
             await dbConnect()
-            const hospital = await Hospital.create({
+            const place = await Place.create({
                 "name":name,
                 "address":address,
                 "district":district,
@@ -31,17 +31,17 @@ export default function AddHospitalForm()
         catch(error){
             console.log(error)
         }
-        revalidateTag("hospital")
-        redirect("/hospital")
+        revalidateTag("place")
+        redirect("/place")
     }
     return(
-    <form action={addHospital}>
-    <div className = "text-xl text-blue-700">Add New Hospital</div>
+    <form action={addPlace}>
+    <div className = "text-xl text-blue-700">Add New Place</div>
     <div className = "flex items-center w-full my-2">
         <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
-            Hospital Name
+            Place Name
         </label>
-        <input type="text" required id="name" name="name" placeholder = "Hospital Name"
+        <input type="text" required id="name" name="name" placeholder = "Place Name"
         className="bg-white border-2 border-gray-200 rounded w-full p-2
         text-gray-700 focus:outline-none focus:border-blue-400"/>
     </div>
@@ -49,7 +49,7 @@ export default function AddHospitalForm()
         <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
             Address
         </label>
-        <input type="text" required id="address" name="address" placeholder = "Hospital Address"
+        <input type="text" required id="address" name="address" placeholder = "Place Address"
         className="bg-white border-2 border-gray-200 rounded w-full p-2
         text-gray-700 focus:outline-none focus:border-blue-400"/>
     </div>
@@ -57,7 +57,7 @@ export default function AddHospitalForm()
         <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
             District
         </label>
-        <input type="text" required id="district" name="district" placeholder = "Hospital District"
+        <input type="text" required id="district" name="district" placeholder = "Place District"
         className="bg-white border-2 border-gray-200 rounded w-full p-2
         text-gray-700 focus:outline-none focus:border-blue-400"/>
     </div>
@@ -65,7 +65,7 @@ export default function AddHospitalForm()
         <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
             Province
         </label>
-        <input type="text" required id="province" name="province" placeholder = "Hospital Province"
+        <input type="text" required id="province" name="province" placeholder = "Place Province"
         className="bg-white border-2 border-gray-200 rounded w-full p-2
         text-gray-700 focus:outline-none focus:border-blue-400"/>
     </div>
@@ -73,7 +73,7 @@ export default function AddHospitalForm()
         <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
             Postal Code
         </label>
-        <input type="text" required id="postalcode" name="postalcode" placeholder = "Hospital Postal Code"
+        <input type="text" required id="postalcode" name="postalcode" placeholder = "Place Postal Code"
         className="bg-white border-2 border-gray-200 rounded w-full p-2
         text-gray-700 focus:outline-none focus:border-blue-400"/>
     </div>
@@ -81,7 +81,7 @@ export default function AddHospitalForm()
         <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
             Tel
         </label>
-        <input type="text" required id="tel" name="tel" placeholder = "Hospital Telephone"
+        <input type="text" required id="tel" name="tel" placeholder = "Place Telephone"
         className="bg-white border-2 border-gray-200 rounded w-full p-2
         text-gray-700 focus:outline-none focus:border-blue-400"/>
     </div>
@@ -89,12 +89,12 @@ export default function AddHospitalForm()
         <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
             Image
         </label>
-        <input type="text" required id="image" name="image" placeholder = "Hospital Image URL"
+        <input type="text" required id="image" name="image" placeholder = "Place Image URL"
         className="bg-white border-2 border-gray-200 rounded w-full p-2
         text-gray-700 focus:outline-none focus:border-blue-400"/>
     </div>
     <button type="submit" className = "bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">
-        Add New Hospital</button>
+        Add New Place</button>
     </form>
     )
 }
