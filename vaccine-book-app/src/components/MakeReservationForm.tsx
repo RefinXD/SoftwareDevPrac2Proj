@@ -1,4 +1,11 @@
-export default function AddPlaceForm() {
+import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import addReservation from "@/libs/addReservation"
+import getUserProfile from "@/libs/getUserProfile"
+import { getServerSession } from "next-auth"
+import { revalidateTag } from "next/cache"
+import { redirect } from "next/navigation"
+
+export default async function MakeReservationForm({params}: {params:string}) {
     const session = await getServerSession(authOptions)
     // const token = session?.user.token
     
@@ -13,7 +20,9 @@ export default function AddPlaceForm() {
     const bookingDate = String(reserveForm.get("date")) 
     const numOfRooms = Number(reserveForm.get("room")) 
     // console.log(profile,params.sid,bookingDate,numOfRooms)
-    addReservation(token, params.sid, new Date(bookingDate) , numOfRooms)
+    addReservation(token, params, new Date(bookingDate) , numOfRooms)
+    revalidateTag("place")
+    redirect("/place")
   }
   
 
@@ -22,7 +31,7 @@ export default function AddPlaceForm() {
     <form action={reserve} className="p-5 bg-slate-300 w-1/2 m-10">
       <div className="text-xl text-blue-700">Add New Reservation</div>
       <div className="flex items-center w-full my-2">
-        <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
+        <label className="w-32 block text-gray-700 pr-4" htmlFor="model">
           Date
         </label>
         <input
@@ -35,7 +44,7 @@ text-gray-700 focus:outline-none focus:border-blue-400"
         />
       </div>
       <div className="flex items-center w-full my-2">
-        <label className="w-auto block text-gray-700 pr-4" htmlFor="model">
+        <label className=" block text-gray-700 pr-4" htmlFor="model">
           Room
         </label>
         <input

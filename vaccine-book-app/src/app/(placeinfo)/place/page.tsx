@@ -9,6 +9,7 @@ import AddPlaceForm from '@/components/AddPlaceForm'
 import { getServerSession } from 'next-auth'
 import getUserProfile from '@/libs/getUserProfile'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import DeletePlaceForm from '@/components/DeletePlaceForm'
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -21,8 +22,7 @@ export default async function Home() {
     <PlaceCatalog placeJson = {place}/>
     </Suspense>
     </main>
-    )
-  
+  )
   const profile = await getUserProfile(session.user.token)
   var createdAt = new Date(profile.data.createdAt)    
   return (
@@ -35,8 +35,12 @@ export default async function Home() {
           <PlaceCatalog placeJson = {place}/>
           {
                     (profile.data.role =="admin")?
+                    <div>
                     <AddPlaceForm></AddPlaceForm>
+                    <DeletePlaceForm token = {session.user.token}></DeletePlaceForm>
+                    </div>
                     :null
+                    
           }
 
         </Suspense>

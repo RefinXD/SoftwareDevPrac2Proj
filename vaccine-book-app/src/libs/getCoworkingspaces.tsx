@@ -8,6 +8,7 @@ export default async function getCoworkingspaces() {
     const response = await fetch("http://localhost:5000/api/v1/coworkingspaces", 
         // {next: {tags:['hospitals']}}
     )
+    console.log(response)
     if(!response.ok){
         console.log(response.status)
         throw new Error("Failed to fetch coworkingspaces")

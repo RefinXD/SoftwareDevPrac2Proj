@@ -26,11 +26,11 @@ app.use(helmet());
 app.use(xss());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-const limiter = rateLimit({
-  windowMs: 10 * 60 * 1000, // 10 mins
-  max: 100,
-});
-app.use(limiter);
+// const limiter = rateLimit({
+//   windowMs: 10 * 60 * 1000, // 10 mins
+//   max: 100,
+// });
+// app.use(limiter);
 app.use(hpp());
 app.use(cookieParser());
 app.use("/api/v1/coworkingspaces", coworkingspaces);

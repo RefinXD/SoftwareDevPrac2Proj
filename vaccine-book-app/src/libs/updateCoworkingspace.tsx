@@ -6,7 +6,6 @@ export default async function updateCoworkingspace(token: string, coworkingspace
 
 //add timeout for loading delay testing
     // await new Promise((resolve) => setTimeout(resolve,5000))
-
     const response = await fetch(`http://localhost:5000/api/v1/coworkingspaces/${coworkingspaceId}`,{
         method: "PUT",
         headers: {
@@ -23,6 +22,15 @@ export default async function updateCoworkingspace(token: string, coworkingspace
             "picture": picture
         })
     })
+    console.log(JSON.stringify({
+        "name": name,
+        "address": address,
+        "operatingHours": operatingHours,
+        "province": province,
+        "postalcode": postalcode,
+        "tel": tel,
+        "picture": picture
+    }))
     console.log(response)
     if(!response.ok){
         throw new Error("Failed to update coworkingspace")

@@ -82,6 +82,8 @@ exports.createCoworkingspace = async (req, res, next) => {
 //@route    PUT /api/v1/coworkingspaces/:id
 //@access   Private
 exports.updateCoworkingspace = async (req, res, next) => {
+  console.log(req.params.id)
+  console.log(req.body)
   try {
     const coworkingspace = await Coworkingspace.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
