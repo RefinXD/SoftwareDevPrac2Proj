@@ -26,7 +26,7 @@ export default async function Home() {
   const profile = await getUserProfile(session.user.token)
   var createdAt = new Date(profile.data.createdAt)    
   return (
-      <main className = "text-center">
+      <main className = "text-center justify-items-center">
         {/* <h1 className = 'text-xl font-medium'>Select Your Hospital</h1> */}
         
         <Banner/>

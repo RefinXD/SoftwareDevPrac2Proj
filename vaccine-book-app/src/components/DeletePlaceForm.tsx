@@ -31,7 +31,7 @@ export default function DeletePlaceForm({token}:{token:string})
                 className="bg-white border-2 border-gray-200 rounded w-full p-2
                 text-gray-700 focus:outline-none focus:border-blue-400"/>
             </div>
-            <button type="submit" className = "bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">
+            <button type="submit" className = "bg-blue-500 w-[20%] hover:bg-blue-700 text-white p-2 rounded">
                 Delete Place</button>
             </div>
     </form>

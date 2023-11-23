@@ -36,8 +36,8 @@ export default function AddPlaceForm()
         redirect("/place")
     }
     return(
-    <form action={addPlace}>
-    <div className="bg-slate-200 w-[100%] flex flex-col items-center space-y-4 p-10 ">
+    <form action={addPlace} className="flex justify-center">
+    <div className="bg-slate-200 w-[100%] flex flex-col space-y-4 p-10 ">
             <div className = "text-xl text-blue-700">Add New Place</div>
             <div className = "flex items-center w-full my-2">
                 <label className="w-32 block text-gray-700 pr-4" htmlFor="model">
@@ -96,9 +96,9 @@ export default function AddPlaceForm()
                 className="bg-white border-2 border-gray-200 rounded w-full p-2
                 text-gray-700 focus:outline-none focus:border-blue-400"/>
             </div>
-            <button type="submit" className = "bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">
+            <button type="submit" className = "self-center bg-blue-500 w-[20%] hover:bg-blue-700 text-white p-2 rounded">
                 Add New Place</button>
-                </div>
+            </div>
     </form>
     )
 }
