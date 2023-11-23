@@ -1,9 +1,12 @@
 'use client'
 
 import userRegister from "@/libs/userRegister";
+import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
+import router, { useRouter } from "next/navigation";
 import { useState } from "react";
 
-// ... (previous code)
+
 
 export default function SignupPage() {
     const [userData, setUserData] = useState({
@@ -12,6 +15,7 @@ export default function SignupPage() {
         userTel: "",
         userPassword: "",
     });
+    const router = useRouter();
 
     const handleInputChange = (field: string, value: string) => {
         setUserData((prevUserData) => ({
@@ -22,6 +26,7 @@ export default function SignupPage() {
 
     const handleSignUp = () => {
         console.log(userData);
+        try{
         userRegister(
             userData.userName,
             userData.userEmail,
@@ -29,6 +34,11 @@ export default function SignupPage() {
             "user",
             userData.userPassword
         );
+        router.push("/api/auth/signin")
+        }
+        catch(error){
+            alert("Failed to register!")
+        }
     };
 
     return (
