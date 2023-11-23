@@ -13,7 +13,7 @@ export default function PlaceCatalog({placeJson}:{placeJson:Object}){
                 {placeJson.data.map((dataItem) =>(
                     
                     <Link className="w-1/5 h-[300px] rounded-lg shadow-lg" href={`/place/${dataItem.id}`}>
-                        <ProductCard key = {dataItem.id} placeName = {dataItem.name} imgSrc={dataItem.picture}/>
+                        <ProductCard key = {dataItem.id} placeName = {dataItem.name} opHours={dataItem.operatingHours} imgSrc={dataItem.picture}/>
                 </Link>
                 ))}
             </div>

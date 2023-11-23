@@ -30,7 +30,7 @@ export default function VdoPlayer({vdoSrc, isPlaying,callback} : {callback:Funct
             videoElement?.removeEventListener('ended', handleVideoEnded);
         };
 
-    },[finished])
+    },[finished,isPlaying])
     
     return (
         <video className='w-[40%]' src={vdoSrc} ref={vdoRef} autoPlay muted controls/>

@@ -5,7 +5,7 @@ import InteractiveCard from './InteractiveCard'
 import { Rating } from '@mui/material'
 import React from 'react';
 
-export default function ProductCard ({placeName,imgSrc,rating,onChange}:{placeName:string,imgSrc:string,rating?:any,onChange?:Function}){
+export default function ProductCard ({placeName,imgSrc,opHours,rating,onChange}:{placeName:string,opHours:string,imgSrc:string,rating?:any,onChange?:Function}){
     return(
         <InteractiveCard contentName={placeName}>
             <div className ="w-full h-[70%] relative rounded-t-lg">
@@ -16,6 +16,8 @@ export default function ProductCard ({placeName,imgSrc,rating,onChange}:{placeNa
             </div>
             <div className="w-full h-[30%] p-[10px]">
                 {placeName}
+                <br/>
+                Operating Hours: {opHours}
                 <div>
                     { onChange? <Rating
                         name="simple-controlled"
