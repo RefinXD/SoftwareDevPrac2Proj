@@ -5,7 +5,7 @@ import ReservationForm from '@/components/ReservationForm'
 export default async function Reservation() {
 
   const session = await getServerSession(authOptions)
-  const  token = session?.user.token
+  const  token = await session?.user.token
 
   const reservations = await getReservations(token)
   if (!reservations.count) return (
@@ -13,7 +13,7 @@ export default async function Reservation() {
   )
   return (
     reservations.data.map( (reservation : Object ) => (
-        <ReservationForm reservation={reservation}/>
+        <ReservationForm reservation={reservation} token={token}/>
     ))
   )
 }
