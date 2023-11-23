@@ -11,7 +11,6 @@ export default function Panel({session}:{session:any}) {
         await new Promise((resolve) => setTimeout(resolve,300))
         const coworkingSpaces = await getCoworkingspaces()
         setCoworkingSpaces(coworkingSpaces)
-        console.log("loading nowwwwwwww")
         
         if(session && session.user.token) {
             var p = await getUserProfile(session.user.token)

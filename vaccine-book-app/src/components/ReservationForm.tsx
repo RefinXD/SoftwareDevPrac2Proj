@@ -30,7 +30,12 @@ export default function ReservationForm({reservation, token} : {reservation:Obje
         <div className="text-md">Booking Date : {reservation.bookingDate}</div>
         <div className="text-md">Number of rooms : {reservation.numOfRooms}</div>
         <div className="text-md">Place : {reservation.coworkingspace.name}</div>
+        {reservation.user.name !== undefined ? (
         <div className="text-md">Booked by : {reservation.user.name}</div>
+        ) : (
+            <div></div>
+        )}
+        
         <button className="bg-white border font-semibold py-2 px-2 m-2 rounded hover:bg-cyan-700 hover:text-white" onClick={() => handleRouteChange(reservation._id)}>Edit reservation</button>
         <button className="bg-white border font-semibold py-2 px-2 m-2 rounded hover:bg-cyan-700 hover:text-white" onClick={() => handleRemove(reservation._id)}>Remove reservation</button>
     </div>)
